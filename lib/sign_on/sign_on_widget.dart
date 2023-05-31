@@ -1054,8 +1054,6 @@ class _SignOnWidgetState extends State<SignOnWidget>
                                                           _model.apiResultmr1 =
                                                               await CreateNewUserCall
                                                                   .call(
-                                                            userID:
-                                                                currentUserUid,
                                                             email: _model
                                                                 .emailAddressController
                                                                 .text,
