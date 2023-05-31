@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "112349333418",
+    "project_id": "pmp-flash-card",
+    "storage_bucket": "pmp-flash-card.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112349333418:android:ef8e84b4fc666d601e4dd3",
+        "android_client_info": {
+          "package_name": "com.mycompany.pmpflashcards"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUqu3syB3SzLMU2GyBSunIHWkS_j0ELVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
