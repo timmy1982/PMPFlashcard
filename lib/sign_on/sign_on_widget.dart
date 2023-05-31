@@ -1064,16 +1064,18 @@ class _SignOnWidgetState extends State<SignOnWidget>
                                                                   .apiResultmr1
                                                                   ?.succeeded ??
                                                               true)) {
-                                                            await Navigator
-                                                                .push(
-                                                              context,
-                                                              MaterialPageRoute(
-                                                                builder:
-                                                                    (context) =>
-                                                                        SelectionPAgeWidget(),
-                                                              ),
-                                                            );
+                                                            await Future.delayed(
+                                                                const Duration(
+                                                                    milliseconds:
+                                                                        1000));
                                                           }
+                                                          await Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  SelectionPAgeWidget(),
+                                                            ),
+                                                          );
 
                                                           setState(() {});
                                                         },
