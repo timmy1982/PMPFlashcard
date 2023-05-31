@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_swipeable_stack.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/selection_p_age/selection_p_age_widget.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -59,7 +60,12 @@ class _FlashcardWidgetState extends State<FlashcardWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('SelectionPAge');
+              await Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SelectionPAgeWidget(),
+                ),
+              );
             },
           ),
           title: Text(

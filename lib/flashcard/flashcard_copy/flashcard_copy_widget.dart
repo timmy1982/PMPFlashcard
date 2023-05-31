@@ -58,7 +58,7 @@ class _FlashcardCopyWidgetState extends State<FlashcardCopyWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pop();
+              Navigator.pop(context);
             },
           ),
           title: Text(

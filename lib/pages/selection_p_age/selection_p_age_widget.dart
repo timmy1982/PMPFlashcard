@@ -1,5 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/pages/asystemforvalue/asystemforvalue_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -67,7 +68,12 @@ class _SelectionPAgeWidgetState extends State<SelectionPAgeWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('Asystemforvalue');
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => AsystemforvalueWidget(),
+                              ),
+                            );
                           },
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,

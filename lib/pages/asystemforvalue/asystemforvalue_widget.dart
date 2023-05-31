@@ -1,3 +1,4 @@
+import '/flashcard/flashcard/flashcard_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -55,7 +56,7 @@ class _AsystemforvalueWidgetState extends State<AsystemforvalueWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pop();
+              Navigator.pop(context);
             },
           ),
           title: Text(
@@ -97,7 +98,12 @@ class _AsystemforvalueWidgetState extends State<AsystemforvalueWidget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('flashcard');
+                            await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FlashcardWidget(),
+                              ),
+                            );
                           },
                           child: Card(
                             clipBehavior: Clip.antiAliasWithSaveLayer,

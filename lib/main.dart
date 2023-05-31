@@ -10,7 +10,6 @@ import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 import 'flutter_flow/internationalization.dart';
-import 'flutter_flow/nav/nav.dart';
 import 'index.dart';
 
 void main() async {
@@ -36,23 +35,20 @@ class _MyAppState extends State<MyApp> {
   ThemeMode _themeMode = FlutterFlowTheme.themeMode;
 
   late Stream<BaseAuthUser> userStream;
-
-  late AppStateNotifier _appStateNotifier;
-  late GoRouter _router;
+  BaseAuthUser? initialUser;
+  bool displaySplashImage = true;
 
   final authUserSub = authenticatedUserStream.listen((_) {});
 
   @override
   void initState() {
     super.initState();
-    _appStateNotifier = AppStateNotifier();
-    _router = createRouter(_appStateNotifier);
     userStream = pMPFlashCardsFirebaseUserStream()
-      ..listen((user) => _appStateNotifier.update(user));
+      ..listen((user) => initialUser ?? setState(() => initialUser = user));
     jwtTokenStream.listen((_) {});
     Future.delayed(
       Duration(seconds: 1),
-      () => _appStateNotifier.stopShowingSplashImage(),
+      () => setState(() => displaySplashImage = false),
     );
   }
 
@@ -74,7 +70,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
+    return MaterialApp(
       title: 'PMP Flash Cards ',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
@@ -87,8 +83,21 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(brightness: Brightness.light),
       darkTheme: ThemeData(brightness: Brightness.dark),
       themeMode: _themeMode,
-      routeInformationParser: _router.routeInformationParser,
-      routerDelegate: _router.routerDelegate,
+      home: initialUser == null || displaySplashImage
+          ? Builder(
+              builder: (context) => Center(
+                child: SizedBox(
+                  width: 50.0,
+                  height: 50.0,
+                  child: CircularProgressIndicator(
+                    color: FlutterFlowTheme.of(context).primary,
+                  ),
+                ),
+              ),
+            )
+          : currentUser!.loggedIn
+              ? FlashcardWidget()
+              : SignOnWidget(),
     );
   }
 }
