@@ -63,7 +63,7 @@ class _FlashcardWidgetState extends State<FlashcardWidget> {
             },
           ),
           title: Text(
-            'Sample',
+            'Key Definition ',
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Readex Pro',
                   color: Colors.white,
