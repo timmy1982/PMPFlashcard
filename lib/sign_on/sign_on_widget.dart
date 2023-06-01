@@ -1051,6 +1051,13 @@ class _SignOnWidgetState extends State<SignOnWidget>
                                                             return;
                                                           }
 
+                                                          await Navigator.push(
+                                                            context,
+                                                            MaterialPageRoute(
+                                                              builder: (context) =>
+                                                                  SelectionPAgeWidget(),
+                                                            ),
+                                                          );
                                                           _model.apiResultmr1 =
                                                               await CreateNewUserCall
                                                                   .call(
@@ -1067,13 +1074,6 @@ class _SignOnWidgetState extends State<SignOnWidget>
                                                                     milliseconds:
                                                                         1000));
                                                           }
-                                                          await Navigator.push(
-                                                            context,
-                                                            MaterialPageRoute(
-                                                              builder: (context) =>
-                                                                  SelectionPAgeWidget(),
-                                                            ),
-                                                          );
 
                                                           setState(() {});
                                                         },
